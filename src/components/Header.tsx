@@ -2,11 +2,9 @@
 
 import Link from 'next/link';
 import { useCart } from '@/lib/cart';
-import { useState } from 'react';
 
 export default function Header() {
   const items = useCart((state) => state.items);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const cartCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -20,6 +18,7 @@ export default function Header() {
         <nav className="hidden md:flex gap-8">
           <Link href="/" className="hover:text-primary transition">Home</Link>
           <Link href="/products" className="hover:text-primary transition">Products</Link>
+          <Link href="/clock" className="hover:text-primary transition">🕐 Clock</Link>
           <Link href="/about" className="hover:text-primary transition">About</Link>
           <Link href="/contact" className="hover:text-primary transition">Contact</Link>
         </nav>
